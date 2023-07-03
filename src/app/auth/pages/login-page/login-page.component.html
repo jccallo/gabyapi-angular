@@ -1,0 +1,106 @@
+<!-- login -->
+<div class="hold-transition login-page">
+
+  <!-- login-box -->
+  <div class="login-box">
+
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Gabyapi</b>.com</a>
+    </div>
+    <!-- /.login-logo -->
+
+    <!-- card -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Area de acceso de usuario</p>
+
+        <!-- form -->
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" placeholder="Correo" 
+              [ngClass]="{'is-invalid': isInvalid('username'), 'is-valid': isValid('username')}"
+              formControlName="username"
+            >
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>   
+            <div class="invalid-feedback">Debe ingresar un correo valido.</div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" placeholder="Contraseña" 
+              [ngClass]="{'is-invalid': isInvalid('password'), 'is-valid': isValid('password')}"
+              formControlName="password"
+            >
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>     
+            <div class="invalid-feedback">Debe ingresar una contraseña de al menos 8 caracteres.</div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember">
+                <label for="remember">
+                  Recordar Sesión
+                </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Ingresar</button> <!-- [disabled]="loginForm.invalid" -->
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+        <!-- /.form -->
+
+        <!-- social-auth-links -->
+        <div class="social-auth-links text-center mb-3">
+          <p>- O -</p>
+          <a href="#" class="btn btn-block btn-primary">
+            <i class="fab fa-facebook mr-2"></i> Ingresar usando Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-danger">
+            <i class="fab fa-google-plus mr-2"></i> Ingresar usando Google
+          </a>
+        </div>
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+          <a href="forgot-password.html">Olvidé mi contraseña</a>
+        </p>
+        <p class="mb-0">
+          <a routerLink="../register" class="text-center">Ir al área de registro</a>
+        </p>
+      </div>
+      <!-- /.login-card-body -->
+
+    </div>
+    <!-- /.card -->
+
+  </div>
+  <!-- /.login-box -->
+
+</div>
+<!-- /.login -->
+
+<span>username: {{loginForm.controls['username'].valid}}</span>
+<pre>{{ loginForm.valid }}</pre>
+
+<span>Pristine</span>
+<pre>{{ loginForm.pristine }}</pre>
+
+<span>Touched</span>
+<pre>{{ loginForm.touched }}</pre>
+
+<span>Value</span>
+<pre>{{ loginForm.value | json }}</pre>
+
+<!-- <span>Agregar Juego</span>
+<pre>{{ loginForm.valid }}</pre>
+<pre>{{ loginForm.value }}</pre> -->
+
